@@ -1,0 +1,16 @@
+<h2>📋 Bảng nhắc nhở chi tiêu hôm nay</h2>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse;">
+  <thead>
+    <tr><th>Tên khoản</th><th>Số tiền</th><th>Ngày đến hạn</th></tr>
+  </thead>
+  <tbody>
+    <% expenses.forEach(function(e) { %>
+      <tr>
+        <td><%= e.name %></td>
+        <td><%= e.amount.toLocaleString() %> VND</td>
+        <td><%= e.dueDate %></td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+<p>Vui lòng thanh toán đúng hạn để tránh phí phạt.</p>

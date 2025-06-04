@@ -1,0 +1,29 @@
+<h1>Admin Quản Lý Chi Tiêu</h1>
+<form method="POST" action="/admin/add">
+  <p><label>Tên khoản chi: <input type="text" name="name" required></label></p>
+  <p><label>Số tiền (VND): <input type="number" name="amount" required></label></p>
+  <p><label>Ngày đến hạn (YYYY-MM-DD): <input type="date" name="dueDate" required></label></p>
+  <p><label>Số ngày nhắc trước khi đến hạn: <input type="number" name="remindBeforeDays" required min="0"></label></p>
+  <p><label>Email nhận nhắc: <input type="email" name="email" required></label></p>
+  <button type="submit">Thêm khoản chi</button>
+</form>
+
+<h2>Danh sách khoản chi hiện có</h2>
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th>Tên khoản</th><th>Số tiền</th><th>Ngày đến hạn</th><th>Nhắc trước (ngày)</th><th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% expenses.forEach(e => { %>
+      <tr>
+        <td><%= e.name %></td>
+        <td><%= e.amount.toLocaleString() %></td>
+        <td><%= e.dueDate %></td>
+        <td><%= e.remindBeforeDays %></td>
+        <td><%= e.email %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
